@@ -33,7 +33,7 @@
   --mint-strong: #6ee9c6;
   --blue: #7fa8ff;
   --blue-strong: #a6c2ff;
-  --ring-track: rgba(255, 255, 255, 0.075);
+  --track: rgba(255, 255, 255, 0.075);
   --input-bg: rgba(255, 255, 255, 0.045);
   --shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
   --dialog-bg: #1b1715;
@@ -60,7 +60,7 @@
   --mint-strong: #2eb894;
   --blue: #3f6fd8;
   --blue-strong: #5c88ea;
-  --ring-track: rgba(82, 54, 38, 0.11);
+  --track: rgba(82, 54, 38, 0.11);
   --input-bg: rgba(255, 255, 255, 0.62);
   --shadow: 0 28px 70px rgba(122, 82, 52, 0.16);
   --dialog-bg: #fffdfa;
@@ -397,57 +397,15 @@ a:focus-visible {
 }
 
 .timer-stage {
-  position: relative;
-  width: min(284px, 72vw);
+  width: min(100%, 420px);
   margin: 0 auto;
-  aspect-ratio: 1;
-}
-
-.ring-halo {
-  position: absolute;
-  inset: 13%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side,
-      color-mix(in srgb, var(--accent) 8%, transparent), transparent 78%);
-  transition: background 500ms var(--ease);
-  pointer-events: none;
-}
-
-.progress-ring {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-  overflow: visible;
-}
-
-.ring-track {
-  fill: none;
-  stroke: var(--ring-track);
-  stroke-width: 2.2;
-}
-
-.ring-value {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2.6;
-  stroke-linecap: round;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 45%, transparent));
-  transition:
-    stroke-dashoffset 260ms linear,
-    stroke 400ms var(--ease);
+  padding: 24px 0 10px;
 }
 
 .timer-core {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 6px;
   text-align: center;
 }
@@ -663,7 +621,7 @@ body.is-running .status-dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--ring-track);
+  background: var(--track);
   border: 1px solid transparent;
   transition:
     background 300ms var(--ease),
@@ -1009,7 +967,7 @@ kbd {
   margin: 0;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--ring-track);
+  background: var(--track);
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;

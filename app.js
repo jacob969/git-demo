@@ -42,7 +42,6 @@
     card: document.querySelector('.timer-card'),
     modeButtons: Array.from(document.querySelectorAll('.mode-button')),
     time: $('timeDisplay'),
-    ring: $('ringValue'),
     status: $('timerStatusText'),
     hint: $('timerHint'),
     start: $('startButton'),
@@ -216,9 +215,6 @@
     const text = formatTime(timer.remainingMs);
     if (els.time.textContent !== text) els.time.textContent = text;
     els.time.setAttribute('aria-label', `剩余时间 ${text}`);
-    const progress = timer.totalMs > 0 ? 1 - timer.remainingMs / timer.totalMs : 0;
-    const clamped = Math.min(1, Math.max(0, progress));
-    if (els.ring) els.ring.style.strokeDashoffset = (clamped * 100).toFixed(3);
     updateTitle();
   }
 
